@@ -400,7 +400,7 @@ int BinarySearchTreeX<Comparable>::highestFull() const
 template <class Comparable>
 int BinarySearchTreeX<Comparable>::highestFull(BinaryNodeX<Comparable> *t) const
 {
-  return 0;  // to be written by student
+
 }
 
 template <class Comparable>
@@ -412,34 +412,6 @@ int BinarySearchTreeX<Comparable>::deepestFull() const
 template <class Comparable>
 int BinarySearchTreeX<Comparable>::deepestFull(BinaryNodeX<Comparable> *t) const
 {
-	BinaryNodeX<Comparable> g = t;
-	
-	for(int i = 0; true; i++) 
-	{
-		if(!hasGrandchildren(g)) //we are the deepest full level so far 
-		{
-			return i;
-		}
-		else 
-		{
-			g = g->left;
-		}
-	}
-	
- // to be written by student
-}
-
-template <class Comparable>
-bool BinarySerachTreeX<Comparable>::hasGrandchildren(BinaryNodeX<Compareable> *t)
-{
-	if(t->left != NULL && t->right != NULL && t->left->left != NULL && t->left->right != NULL && t->right->left != NULL && t->right->right != NULL)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
 
 }
 
