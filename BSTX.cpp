@@ -313,7 +313,34 @@ int BinarySearchTreeX<Comparable>::height() const
 template <class Comparable>
 int BinarySearchTreeX<Comparable>::height(BinaryNodeX<Comparable> *t) const
 {
-  return 0;  // to be written by student
+  if(t->left == NULL && t->right == NULL) //im a leaf 
+  {
+  	return 0;
+  }
+  else if (t->left == NULL) 
+  {
+  	return height(t->right) + 1;
+  }
+  else if (t->right == NULL)
+  {
+  	return height(t->left) + 1;
+  }
+  else {
+  	return max(height(t->left), height(t->right)) + 1;
+  } // to be written by student
+}
+
+template <class Comparable>
+int BinarySearchTreeX<Comparable>::max(int a, int b) const
+{
+	if(a > b)
+	{
+		return a;
+	}
+	else 
+	{
+		return b;
+	}
 }
 
 template <class Comparable>
@@ -326,7 +353,22 @@ int BinarySearchTreeX<Comparable>::sum() const
 template <class Comparable>
 int BinarySearchTreeX<Comparable>::sum(BinaryNodeX<Comparable> *t) const
 {
-  return 0; // to be written by student
+	if(t->left == NULL && t->right == NULL) //im a leaf
+	{
+		return elementAt(t);
+	}
+	else if (t->left == NULL)
+	{
+		return sum(t->right) + elementAt(t);
+	}
+	else if (t->right == NULL)
+	{
+		return sum(t->left) + elementAt(t);
+	}
+  	else
+  	{
+  		return sum(t->left) + sum(t->right) + elementAt(t);
+  	} // to be written by student
 }
 
 template <class Comparable>
@@ -334,7 +376,17 @@ bool BinarySearchTreeX<Comparable>::isAncestor(const Comparable & x,
   const Comparable & possibleAncestor) const
 
 {
-  return true;  // to be written by student
+	BinaryNodeX<Comparable>* result = find(x, find(possibleAncestor, root)); //find the ancestor, then give the ancestor as the tree and find the element
+
+	if(result == NULL)
+	{
+		return false;
+	}	
+	else 
+	{
+		return true;
+	  
+	} // to be written by student
 }
 
 
@@ -360,7 +412,37 @@ int BinarySearchTreeX<Comparable>::deepestFull() const
 template <class Comparable>
 int BinarySearchTreeX<Comparable>::deepestFull(BinaryNodeX<Comparable> *t) const
 {
-  return 0;  // to be written by student
+	BinaryNodeX<Comparable> g = t;
+	
+	for(int i = 0; true; i++) 
+	{
+		if(!hasGrandchildren(g)) //we are the deepest full level so far 
+		{
+			return i;
+		}
+		else 
+		{
+			g = g->left;
+		}
+	}
+	
+ // to be written by student
 }
+
+template <class Comparable>
+bool BinarySerachTreeX<Comparable>::hasGrandchildren(BinaryNodeX<Compareable> *t)
+{
+	if(t->left != NULL && t->right != NULL && t->left->left != NULL && t->left->right != NULL && t->right->left != NULL && t->right->right != NULL)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
+}
+
+
 
 
