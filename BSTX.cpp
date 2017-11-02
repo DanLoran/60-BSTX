@@ -341,6 +341,7 @@ int BinarySearchTreeX<Comparable>::max(int a, int b) const
 	{
 		return b;
 	}
+
 }
 
 template <class Comparable>
@@ -369,6 +370,7 @@ int BinarySearchTreeX<Comparable>::sum(BinaryNodeX<Comparable> *t) const
   	{
   		return sum(t->left) + sum(t->right) + elementAt(t);
   	} // to be written by student
+
 }
 
 template <class Comparable>
@@ -400,6 +402,15 @@ int BinarySearchTreeX<Comparable>::highestFull() const
 template <class Comparable>
 int BinarySearchTreeX<Comparable>::highestFull(BinaryNodeX<Comparable> *t) const
 {
+  if(t->left == NULL || t->right == NULL) //heighest full so far
+  {
+    return height(t); //your height, no need to traverse the rest of tree
+  }
+  else
+  {
+    return max(highestFull(t->left), highestFull(t->right)) + 1;
+  }
+    // to be written by student
 
 }
 
@@ -413,8 +424,33 @@ template <class Comparable>
 int BinarySearchTreeX<Comparable>::deepestFull(BinaryNodeX<Comparable> *t) const
 {
 
+  return findLevel(t, 0);  // to be written by student
 }
 
+template <class Comparable>
+int BinarySearchTreeX<Comparable>::findLevel(BinaryNodeX<Comparable> *node, int depth) const
+{
+    if(node->left == NULL || node->right == NULL) //im deepest full level so far
+    {
+        return depth;
+    }
+    else 
+    {
+        return min(findLevel(node->left, depth + 1), findLevel(node->right, depth + 1));
+    }
+}
 
+template <class Comparable>
+int BinarySearchTreeX<Comparable>::min(int a, int b) const
+{
+    if(a < b)
+    {
+        return a;
+    }
+    else 
+    {
+        return b;
+    }
+}
 
 

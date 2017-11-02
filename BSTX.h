@@ -79,6 +79,8 @@ class BinarySearchTreeX
     int sum(BinaryNodeX<Comparable> *t ) const; //Student writes this
     int highestFull(BinaryNodeX<Comparable> *t ) const; //Student writes this
     int deepestFull(BinaryNodeX<Comparable> *t ) const; //Student writes this
+    int findLevel(BinaryNodeX<Comparable> *node, int depth) const; //We wrote this
+    int min(int a, int b) const; //We write this
 };
 
 #include "BSTX.cpp"
