@@ -402,14 +402,7 @@ int BinarySearchTreeX<Comparable>::highestFull() const
 template <class Comparable>
 int BinarySearchTreeX<Comparable>::highestFull(BinaryNodeX<Comparable> *t) const
 {
-  if(t->left == NULL || t->right == NULL) //heighest full so far
-  {
-    return height(t); //your height, no need to traverse the rest of tree
-  }
-  else
-  {
-    return max(highestFull(t->left), highestFull(t->right)) + 1;
-  }
+  return height(t) - deepestFull(t);
     // to be written by student
 
 }

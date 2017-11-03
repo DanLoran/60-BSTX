@@ -54,7 +54,7 @@ class BinarySearchTreeX
     void remove( const Comparable & x );
     int height() const;
     int sum() const;
-    bool isAncestor(const Comparable & x, const Comparable & possibleAncestor) const; //Student writes this
+    bool isAncestor(const Comparable & x, const Comparable & possibleAncestor) const;
     int highestFull() const;
     int deepestFull() const;
 
@@ -74,13 +74,10 @@ class BinarySearchTreeX
     void makeEmpty( BinaryNodeX<Comparable> * & t ) const;
     void printTree( BinaryNodeX<Comparable> *t ) const;
     BinaryNodeX<Comparable> * clone( BinaryNodeX<Comparable> *t ) const;
-    int height(BinaryNodeX<Comparable> *t ) const; //Student writes this
-    int max(int a, int b) const; //We wrote this
-    int sum(BinaryNodeX<Comparable> *t ) const; //Student writes this
-    int highestFull(BinaryNodeX<Comparable> *t ) const; //Student writes this
-    int deepestFull(BinaryNodeX<Comparable> *t ) const; //Student writes this
-    int findLevel(BinaryNodeX<Comparable> *node, int depth) const; //We wrote this
-    int min(int a, int b) const; //We write this
+    int height(BinaryNodeX<Comparable> *t ) const;
+    int sum(BinaryNodeX<Comparable> *t ) const;
+    int highestFull(BinaryNodeX<Comparable> *t ) const;
+    int deepestFull(BinaryNodeX<Comparable> *t ) const;
 };
 
 #include "BSTX.cpp"
